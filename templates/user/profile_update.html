@@ -1,0 +1,28 @@
+{% extends 'partials/top.html' %}
+{% block title %}Profile page {% endblock %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+<div class="row my-4">
+    <div class="col-md-4"></div>
+    <div class="col-md-8">
+        <div class="card">
+            <div class="card-header  text-white" style="background-color: #153d77; ">
+                School Details
+            </div>
+            <div class="row p-3">
+                <div class="col-md-8">
+                    <form method="POST" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        {{ u_form|crispy }}
+                        {{ p_form|crispy }}
+                        <input class="btn btn  text-white" type="submit" value="Update" style="background-color: #153d77; ">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

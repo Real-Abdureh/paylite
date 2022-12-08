@@ -1,0 +1,100 @@
+body{
+	background-color:#eeeeee;
+	}
+
+a{
+	text-decoration:none;
+	
+	}
+.container-fluid{
+	margin-top:5%;
+	
+	}
+	
+.myfooter{
+	background-color:#fff;
+	position:fixed;
+	z-index:-200;
+	width:100%;
+	padding:10px;
+	margin:200px auto;
+	
+	}
+.container{
+	margin-top:100px;	
+	}
+
+.navbar-default{
+	background-color:#fff;
+	border:solid 1px #fff;
+	box-shadow:1px 1px 5px 4px #b0b0b0;
+
+}
+	
+	
+	
+	
+
+.log-in_background{
+	background-color:#42a5f5;
+	
+	
+	}
+.input-group-addon {
+    background-color:#1565c0;
+	color:#fff;
+	border: solid 1px #1565c0;
+}
+
+.btn-default{
+	background-color:#1565c0;
+	border:solid 1px #1565c0;
+	color:#fff;
+	border-radius:5px;
+	padding:7px;
+	text-align:center;
+	
+	}
+.sms{
+	background-color:#1565c0;
+	border:solid 1px #1565c0;
+	color:#fff;
+	border-radius:5px;
+	padding:7px;
+	text-align:center;
+	
+	}
+
+.red{
+	color: #a94442;
+	}
+
+.blue{
+	color: #1565c0;
+	}
+
+
+.panel-default > .panel-heading {
+	background-color:#1565c0;
+	border:solid 1px #1565c0;
+	color:#fff;
+
+}
+
+
+.btn-default:hover{
+	background-color:#0d47a1;
+	border:solid 1px #1565c0;
+	color:#fff;
+	border-radius:5px;
+	padding:7px;
+	
+	
+	}
+
+
+label{
+	color:#a94442;;
+	
+	}
+

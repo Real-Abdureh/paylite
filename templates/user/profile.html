@@ -1,0 +1,114 @@
+{% extends 'partials/top.html' %}
+{% block title %}Profile page {% endblock %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<div class="row my-4">
+    <div class="col-md-4"></div>
+    <div class="col-md-8">
+        <div class="card">
+            <div class="card-header  text-white" style="background-color: #153d77;">
+                School Profile Page
+            </div>
+            <div class="row p-3">
+                <div class="col-md-8">
+                    <table class="table table-borderless">
+                        <thead>
+                            <span class="h4">Porfile Information</span class="h4">
+                            <a class="btn  btn-sm float-right text-white" href="{% url 'user-profile-update' %}" style="background-color: #153d77; ">Edit</a>
+                            <hr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row">Username</th>
+                                <td>{{ user.username }}</td>
+                            </tr>
+
+                            <tr>
+                              <th scope="row">School</th>
+                              <td>{{ user.profile.school}}</td>
+                          </tr>
+
+                          <tr>
+                            <th scope="row">Bank</th>
+                            <td>{{ user.profile.Bank }}</td>
+                        </tr>
+                        
+                        <tr>
+                          <th scope="row">Account</th>
+                          <td>{{ user.profile.Account}}</td>
+                      </tr>
+                            <tr>
+                                <th scope="row">Email</th>
+                                <td>{{ user.email }}</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Phone</th>
+                                <td>{{ user.profile.phone }}</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Address</th>
+                                <td>{{ user.profile.address }}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="col-md-4">
+                    <img class="img-thumbnail" src="{{ user.profile.logo.url }}" alt="profile-image">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+<!-- <!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>School Profile</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" 
+    integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <link rel="stylesheet" href="">
+  </head>
+  <body>
+    <nav class="navbar bg-light">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">
+        <img src="Images/GHS-2 - Copy.jpg" alt="Logo" width="30" height="24" class="d-inline-block align-text-top img-fluid rounded-circle">
+        <span style="color: darkblue; font-weight: bold;">GOMBE CHILDREN & HIGH SCHOOL</span>
+      </a>
+    </div>
+  </nav>
+
+  <div class="container">
+    
+    <div class="brand-title">SCHOOL PROFILE</div>
+    <hr>
+    <h4>NAME :    Gombe Children And High School</h4>
+    <br>
+    <h4>ADDRESS :    P.M.B Box 041, Gombe, Gombe State</h4>
+    <br>
+    <h4>E-MAIL :    gombehighschool@gmail.com</h4>
+    <br>
+    <h4>PASSWORD :    12345678</h4>
+    <br>
+    <h4>CAC :    CAC Document</h4>
+    <br>
+    <h4>LICENSE :    Ministry Of Education</h4>
+    <br>
+    <h4>SCHOOL LOGO :    Logo</h4>
+    <hr>
+   
+    <form>
+        <div class="center">
+            <button type="submit" style="width: 40%;"><a href="./EditProfile.html">EDIT PROFILE</a></button>
+         </div>
+    </form>
+
+  </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+  </body>
+</html> -->

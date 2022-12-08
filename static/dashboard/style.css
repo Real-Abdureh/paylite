@@ -1,0 +1,54 @@
+
+	#card-body2{
+		display: none;
+	}
+
+	.col-6-fund{
+		padding-left: 10%;
+	}
+
+    .t-history{
+        margin: 5% 10% 5% 10%;
+    }
+
+    .p-name-transaction{
+       font-family:'Courier New', Courier, monospace; 
+       color:black;
+       font-size: 1.3rem;
+
+    }
+
+    td{
+        font-family:'Courier New', Courier, monospace;
+    }
+    
+
+    @media screen and (max-width: 900px){
+        .bank-name{
+            font-size: .65rem;
+        }
+
+        .bank-img{
+            margin-left: 10px;
+        }
+
+        .bank-name-number{
+            margin-left: 6px;
+        }
+
+        .t-history{
+        margin: 5% 7%;
+         }
+
+         .p-name-transaction{
+       font-family:'Courier New', Courier, monospace; 
+       color:black;
+       font-size: .7rem;
+
+        }
+
+        td{
+            font-size: .6rem;
+            font-family:'Courier New', Courier, monospace;
+        }
+    }
