@@ -5,7 +5,9 @@ from .forms import SelectCustomerForm
 
 @login_required
 def index(request):
-    return render(request, 'dashboard/index.html')
+    transaction = Transaction.objects.all()
+    context = {'transaction': transaction}
+    return render(request, 'dashboard/index.html', context)
 
 
 def customer_form(request):
