@@ -165,30 +165,14 @@
                     </tr>
                   </thead>
                   <tbody>
+                    {% for i in transaction %}
                     <tr>
                       <td>19-11-2022</td>
-                      <td>Abdulkadir Umar Barambu</td>
-                      <td>School fees</td>
-                      <td>33,000</td>
+                      <td>{{i.Name}}</td>
+                      <td>{{i.Service}}</td>
+                      <td>{{i.Amount}}</td>
                     </tr>
-                    <tr>
-                        <td>19-11-2022</td>
-                        <td>Abdulkadir Umar Barambu</td>
-                        <td>School fees</td>
-                        <td>33,000</td>
-                    </tr>
-                    <tr>
-                        <td>19-11-2022</td>
-                        <td>Abdulkadir Umar Barambu</td>
-                        <td>Bus fee</td>
-                        <td>7,000</td>
-                    </tr>
-                    <tr>
-                        <td>19-11-2022</td>
-                        <td>Abdulkadir Umar Barambu</td>
-                        <td>School fees</td>
-                        <td>33,000</td>
-                    </tr>
+                    {% endfor %}
                   </tbody>
                 </table>
               </div>
