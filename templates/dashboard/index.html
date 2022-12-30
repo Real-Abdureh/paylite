@@ -152,48 +152,32 @@
                         <h1 style="border-bottom: 1px solid rgb(3, 3, 214);"></h1>
                         <h1>RECENT TRANSACTIONS</h1>
          
-          <section>
-            <div class="attendance-list">
-               
-                <table class="table">
-                  <thead>
-                    <tr>
-                      <th class="theader">DATE</th>
-                      <th class="theader">NAME</th>
-                      <th class="theader">SERVICE</th>
-                      <th class="theader">AMOUNT</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td>19-11-2022</td>
-                      <td>Abdulkadir Umar Barambu</td>
-                      <td>School fees</td>
-                      <td>33,000</td>
-                    </tr>
-                    <tr>
-                        <td>19-11-2022</td>
-                        <td>Abdulkadir Umar Barambu</td>
-                        <td>School fees</td>
-                        <td>33,000</td>
-                    </tr>
-                    <tr>
-                        <td>19-11-2022</td>
-                        <td>Abdulkadir Umar Barambu</td>
-                        <td>Bus fee</td>
-                        <td>7,000</td>
-                    </tr>
-                    <tr>
-                        <td>19-11-2022</td>
-                        <td>Abdulkadir Umar Barambu</td>
-                        <td>School fees</td>
-                        <td>33,000</td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-          </section>
-
+						<section>
+							<div class="attendance-list">
+							   
+								<table class="table">
+								  <thead>
+									<tr>
+									  <th class="theader">DATE</th>
+									  <th class="theader">NAME</th>
+									  <th class="theader">SERVICE</th>
+									  <th class="theader">AMOUNT</th>
+									</tr>
+								  </thead>
+								  <tbody>
+									{% for i in transaction %}
+									<tr>
+									  <td>19-11-2022</td>
+									  <td>{{i.Name}}</td>
+									  <td>{{i.Service}}</td>
+									  <td>{{i.Amount}}</td>
+									</tr>
+									{% endfor %}
+								  </tbody>
+								</table>
+							  </div>
+						  </section>
+				
 
 			</main>
 			<footer class="footer" style="background-color:#153d77;">

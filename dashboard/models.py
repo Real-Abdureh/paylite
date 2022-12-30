@@ -1,10 +1,6 @@
 from django.db import models
-from django.forms import ModelForm
+import uuid
 from django.contrib.auth.models import User
-from user.models import Profile
-
-
-SCHOOLS = Profile.school
 
 
 class Transaction(models.Model):
@@ -12,6 +8,10 @@ class Transaction(models.Model):
   Name = models.CharField(max_length=200, null= True )
   Service = models.CharField(max_length=200, null= True)
   Amount = models.IntegerField(null = True)
+  # refrence = models.UUIDField(default=uuid.uuid4, primary_key=True, unique=True)
+
+  def __str__(self):
+        return f'{self.select.username}-Transaction'
   
 
 
