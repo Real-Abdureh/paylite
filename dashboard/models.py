@@ -8,7 +8,7 @@ class Transaction(models.Model):
   Name = models.CharField(max_length=200, null= True )
   Service = models.CharField(max_length=200, null= True)
   Amount = models.IntegerField(null = True)
-  # refrence = models.UUIDField(default=uuid.uuid4, primary_key=True, unique=True)
+  refrence = models.UUIDField(default=uuid.uuid4, primary_key=True, unique=True)
 
   def __str__(self):
         return f'{self.select.username}-Transaction'
