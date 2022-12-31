@@ -162,15 +162,17 @@
 									  <th class="theader">NAME</th>
 									  <th class="theader">SERVICE</th>
 									  <th class="theader">AMOUNT</th>
+									  <th class="theader">REFRENCE</th>
 									</tr>
 								  </thead>
 								  <tbody>
 									{% for i in transaction %}
 									<tr>
 									  <td>19-11-2022</td>
-									  <td>{{i.Name}}</td>
+									  <td>{{i.Payer_Name}}</td>
 									  <td>{{i.Service}}</td>
 									  <td>{{i.Amount}}</td>
+									  <td>{{i.id}}</td>
 									</tr>
 									{% endfor %}
 								  </tbody>

@@ -21,7 +21,6 @@ def home(request):
 
     if request.method == 'POST':
         form = TransactionForm(request.POST)
-        form.reference = uuid.uuid4().hex
         if form.is_valid():
             form.save()
             context = {'form':form}
