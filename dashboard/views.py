@@ -24,7 +24,7 @@ def home(request):
         if form.is_valid():
             form.save()
             context = {'form':form}
-            return render(request, 'customer/home.html', context )
+            return render(request, 'customer/pay.html', context )
     else:
         form = TransactionForm
         context = {'form':form}
