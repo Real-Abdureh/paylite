@@ -40,6 +40,7 @@ def home(request):
     #     if commit:
     #         form.save()
     #     return form
+def pay(request):
+    return render(request, 'customer/pay.html')
 
-
-# Create your views here.
+# Create y:our views here.
