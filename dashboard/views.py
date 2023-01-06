@@ -6,8 +6,11 @@ from .forms import TransactionForm
 
 @login_required
 def index(request):
-    transaction = Transaction.objects.all()
-    context = {'transaction': transaction}
+    #transaction = Transaction.objects.all()
+    user_object = User.objects.get(username=request.user.username)
+    user_profil = Transaction.objects.get(select=user_object)
+    user_profile = Transaction.objects.filter(select=user_object)
+    context = {'user_profile': user_profile}
     return render(request, 'dashboard/index.html', context)
 
 # def get(request):
