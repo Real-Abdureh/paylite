@@ -52,4 +52,7 @@ def home(request):
 def pay(request):
     return render(request, 'customer/pay.html')
 
+def landing(request):
+    return render(request, 'customer/landing-page.html')
+
 # Create y:our views here.
