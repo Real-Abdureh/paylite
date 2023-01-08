@@ -12,7 +12,8 @@ def index(request):
     user_object = User.objects.get(username=request.user.username)
     #user_profil = Transaction.objects.get(select=user_object)
     user_profile = Transaction.objects.filter(select=user_object)
-    context = {'user_profile': user_profile}
+   
+    context = {'user_profile': user_profile,}
     return render(request, 'dashboard/index.html', context)
 
 # def get(request):
@@ -30,7 +31,7 @@ def home(request):
             form.save()
             context = {'form':form}
 
-            return render(request, 'customer/pay.html', context )
+            return render(request, 'customer/pay.html', context, )
             
     else:
         form = TransactionForm
