@@ -1,0 +1,44 @@
+{% load static %}
+{%  load crispy_forms_tags %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Payment Checkout Form</title>
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.2/css/all.css">
+	<link rel="stylesheet" href="{% static 'customer/Pay.css' %}">
+    <!-- <link rel="stylesheet" href="Success.css"> -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
+    <script src= "https://code.jquery.com/jquery-3.4.1.js" ></script>
+    <script src="{% static 'javaScript/pay.js' %}"> </script>
+
+</head>
+{% block content %}
+<body>
+    <nav class="navbar navbar-expand-lg bg-light">
+        <div class="container-fluid">
+            <img src="Images/orellion1.jpg" alt="Logo" width="30" height="24" class="d-inline-block align-text-top img-fluid rounded-circle">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Contact</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Help</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    
+          <div class="container">
+</body>
+{% endblock %}
