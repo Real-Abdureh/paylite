@@ -5,6 +5,9 @@ from django.contrib.auth.decorators import login_required
 from .forms import TransactionForm
 from django.contrib.auth.models import User
 from user.models import Profile
+from django.http import HttpResponse
+from django.template.loader import get_template
+from xhtml2pdf import pisa
 
 @login_required
 def index(request):
@@ -16,15 +19,16 @@ def index(request):
     context = {'user_profile': user_profile,}
     return render(request, 'dashboard/index.html', context)
 
+def user_render_pdf_view(request, *args, **kwargs):
+    model = Transaction
+    return render(request)
+
 # def get(request):
 #     transaction = Transaction.objects.all()
 #     context = {'transaction':transaction}
 
 #     return render(request,'dashboard/index.html',context )
-
 def home(request):
-   
-
     if request.method == 'POST':
         form = TransactionForm(request.POST)
         if form.is_valid():
@@ -54,5 +58,27 @@ def pay(request):
 
 def landing(request):
     return render(request, 'customer/landing-page.html')
+
+
+def render_pdf_view(request):
+    template_path = 'dashboard/Receipt.html'
+    context = {'myvar': 'this is your template context'}
+    # Create a Django response object, and specify content_type as pdf
+    response = HttpResponse(content_type='application/pdf')
+    #if download:
+    # response['Content-Disposition'] = 'attachment; filename="report.pdf"'
+    #if display
+    response['Content-Disposition'] = ' filename="report.pdf"'
+    # find the template and render it.
+    template = get_template(template_path)
+    html = template.render(context)
+
+    # create a pdf
+    pisa_status = pisa.CreatePDF(
+       html, dest=response, )
+    # if error then show some funny view
+    if pisa_status.err:
+       return HttpResponse('We had some errors <pre>' + html + '</pre>')
+    return response
 
 # Create y:our views here.
