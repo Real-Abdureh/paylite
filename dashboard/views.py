@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from . models import Transaction
 import uuid
 from django.contrib.auth.decorators import login_required
@@ -8,6 +8,8 @@ from user.models import Profile
 from django.http import HttpResponse
 from django.template.loader import get_template
 from xhtml2pdf import pisa
+from django.views.generic import ListView
+from io import BytesIO
 
 @login_required
 def index(request):
@@ -19,15 +21,29 @@ def index(request):
     context = {'user_profile': user_profile,}
     return render(request, 'dashboard/index.html', context)
 
-def user_render_pdf_view(request, *args, **kwargs):
-    model = Transaction
-    return render(request)
+# class CustomerListView(ListView):
+#     model = Transaction
+#     template_name = 'customer/Receipt.html'
 
-# def get(request):
-#     transaction = Transaction.objects.all()
-#     context = {'transaction':transaction}
 
-#     return render(request,'dashboard/index.html',context )
+# def generate_receipt(request,):
+#     form= Transaction.objects.all()
+#     template = get_template('customer/receipt.html')
+#     context = {'form': form}
+#     html = template.render(context)
+#     result = BytesIO()
+#     pdf = pisa.pisaDocument(BytesIO(html.encode("ISO-8859-1")), result)
+#     if not pdf.err:
+#         return HttpResponse(result.getvalue(), content_type='application/pdf')
+#     else:
+#         return HttpResponse("Error generating PDF")
+
+    
+def get(request):
+    transaction = Transaction.objects.all()
+    context = {'transaction':transaction}
+
+    return render(request,'dashboard/index.html',context )
 def home(request):
     if request.method == 'POST':
         form = TransactionForm(request.POST)
@@ -41,6 +57,7 @@ def home(request):
         form = TransactionForm
         context = {'form':form}
         return render(request, 'customer/home.html', context )
+
 
 
     
@@ -60,25 +77,25 @@ def landing(request):
     return render(request, 'customer/landing-page.html')
 
 
-def render_pdf_view(request):
-    template_path = 'dashboard/Receipt.html'
-    context = {'myvar': 'this is your template context'}
-    # Create a Django response object, and specify content_type as pdf
-    response = HttpResponse(content_type='application/pdf')
-    #if download:
-    # response['Content-Disposition'] = 'attachment; filename="report.pdf"'
-    #if display
-    response['Content-Disposition'] = ' filename="report.pdf"'
-    # find the template and render it.
-    template = get_template(template_path)
-    html = template.render(context)
+# def render_pdf_view(request):
+#     template_path = 'dashboard/Receipt.html'
+#     context = {'myvar': 'this is your template context'}
+#     # Create a Django response object, and specify content_type as pdf
+#     response = HttpResponse(content_type='application/pdf')
+#     #if download:
+#     # response['Content-Disposition'] = 'attachment; filename="report.pdf"'
+#     #if display
+#     response['Content-Disposition'] = ' filename="report.pdf"'
+#     # find the template and render it.
+#     template = get_template(template_path)
+#     html = template.render(context)
 
-    # create a pdf
-    pisa_status = pisa.CreatePDF(
-       html, dest=response, )
-    # if error then show some funny view
-    if pisa_status.err:
-       return HttpResponse('We had some errors <pre>' + html + '</pre>')
-    return response
+#     # create a pdf
+#     pisa_status = pisa.CreatePDF(
+#        html, dest=response, )
+#     # if error then show some funny view
+#     if pisa_status.err:
+#        return HttpResponse('We had some errors <pre>' + html + '</pre>')
+    # return response
 
 # Create y:our views here.

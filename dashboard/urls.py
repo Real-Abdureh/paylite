@@ -7,6 +7,7 @@ urlpatterns = [
     path('home/',views.home, name='customer-home'),
     path('pay/', views.pay, name= 'customer-pay'  ),
     path('landing/', views.landing, name='landing-page'),
-    path('receipt/', views.render_pdf_view, name='sample-receipt'),
+    # path('check/', views.CustomerListView.as_view, name='checking')
+    # path('receipt/', views.generate_receipt, name='sample-receipt'),
    
 ]
