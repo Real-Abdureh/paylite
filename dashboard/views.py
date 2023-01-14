@@ -26,17 +26,27 @@ def index(request):
 #     template_name = 'customer/Receipt.html'
 
 
-# def generate_receipt(request,):
-#     form= Transaction.objects.all()
-#     template = get_template('customer/receipt.html')
-#     context = {'form': form}
-#     html = template.render(context)
-#     result = BytesIO()
-#     pdf = pisa.pisaDocument(BytesIO(html.encode("ISO-8859-1")), result)
-#     if not pdf.err:
-#         return HttpResponse(result.getvalue(), content_type='application/pdf')
-#     else:
-#         return HttpResponse("Error generating PDF")
+def generate_receipt(request,):
+    Receipt= Transaction.objects.all()
+    template_path = 'dashboard/Receipt.html'
+    context = {'Receipt': Receipt}
+    # Create a Django response object, and specify content_type as pdf
+    response = HttpResponse(content_type='application/pdf')
+    #if download:
+    # response['Content-Disposition'] = 'attachment; filename="report.pdf"'
+    #if display
+    response['Content-Disposition'] = ' filename="report.pdf"'
+    # find the template and render it.
+    template = get_template(template_path)
+    html = template.render(context)
+
+    # create a pdf
+    pisa_status = pisa.CreatePDF(
+       html, dest=response, )
+    # if error then show some funny view
+    if pisa_status.err:
+       return HttpResponse('We had some errors <pre>' + html + '</pre>')
+    return response
 
     
 def get(request):

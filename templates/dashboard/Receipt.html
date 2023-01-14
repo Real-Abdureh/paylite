@@ -1,4 +1,4 @@
-{% load render_table from Transaction %}
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -6,8 +6,9 @@
         <title>Receipt</title>
     </head>
     <body>
+        {{Receipt}}
         <h1>Receipt</h1>
-        <table>
+        <!-- <table>
             <tr>
                 <th>Name</th>
                 <td>{{ form.Payer_Name }}</td>
@@ -20,6 +21,6 @@
                 <th>Date</th>
                 <td>{{ form.Service }}</td>
             </tr>
-        </table>
+        </table> -->
     </body>
 </html>
