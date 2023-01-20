@@ -27,9 +27,12 @@ def index(request):
 
 
 def generate_receipt(request,):
-    Receipt= Transaction.objects.all()
+     #transaction = Transaction.objects.all()
+    user_object_pdf = User.objects.get(username=request.user.username)
+    #user_profil = Transaction.objects.get(select=user_object)
+    user_profile_pdf = Transaction.objects.filter(select=user_object_pdf)
     template_path = 'dashboard/Receipt.html'
-    context = {'Receipt': Receipt}
+    context = {'user_profile_pdf': user_profile_pdf}
     # Create a Django response object, and specify content_type as pdf
     response = HttpResponse(content_type='application/pdf')
     #if download:
@@ -57,10 +60,9 @@ def get(request):
 def home(request):
     if request.method == 'POST':
         form = TransactionForm(request.POST)
-        if form.is_valid():
+        if form.is_valid():           
             form.save()
-            context = {'form':form}
-
+            context = {'form':form}   
             return render(request, 'customer/pay.html', context, )
             
     else:
