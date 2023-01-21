@@ -54,9 +54,14 @@ def generate_receipt(request,):
     
 def get(request):
     transaction = Transaction.objects.all()
-    context = {'transaction':transaction}
+    sum = 0
+    total = sum + Transaction.Amount
+    context = {'transaction':transaction, 'total': total}
+
 
     return render(request,'dashboard/index.html',context )
+
+
 def home(request):
     if request.method == 'POST':
         form = TransactionForm(request.POST)
