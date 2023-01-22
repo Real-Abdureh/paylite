@@ -105,7 +105,7 @@
 									</div>
                                     <div class="row">
                                         <div class="col-12">
-									<h1 class="display-5 mt-4 mb-3" style="font-weight:450; text-align: center; font-family:'Courier New', Courier, monospace;">₦{{total}} <a href="{% url 'index' %}" style="color:black ;"><i class="align-middle" data-feather="refresh-cw"></i></a></h1>
+									<h1 class="display-5 mt-4 mb-3" style="font-weight:450; text-align: center; font-family:'Courier New', Courier, monospace;">₦{{i.amount}} <a href="{% url 'index' %}" style="color:black ;"><i class="align-middle" data-feather="refresh-cw"></i></a></h1>
                                     </div>
                                     </div>
                                     <div class="row mt-3">
@@ -169,7 +169,7 @@
 								
 									{% for i in user_profile %}
 									<tr>
-									  <td>19-11-2022</td>
+									  <td>{{i.Date}}</td>
 									  <td>{{i.Payer_Name}}</td>
 									  <td>{{i.Service}}</td>
 									  <td>{{i.Amount}}</td>

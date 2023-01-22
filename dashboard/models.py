@@ -11,6 +11,7 @@ class Transaction(models.Model):
   Payer_Email = models.EmailField(null=True)
   Service = models.CharField(max_length=200, null= True)
   Amount = models.IntegerField(null = True)
+  Date = models.DateTimeField(auto_now_add= True)
   #refrence = models.UUIDField(default=uuid.uuid4, primary_key=True, unique=True)
 
   def __str__(self):
