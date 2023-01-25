@@ -8,6 +8,6 @@ urlpatterns = [
     path('pay/', views.pay, name= 'customer-pay'  ),
     path('', views.landing, name='landing-page'),
     # path('check/', views.CustomerListView.as_view, name='checking'),
-    path('receipt/<pk>', views.generate_receipt, name='sample-receipt'),
+    path('receipt/', views.generate_receipt, name='sample-receipt'),
    
 ]

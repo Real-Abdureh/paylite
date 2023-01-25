@@ -29,7 +29,7 @@ def index(request):
 def generate_receipt(request): 
         transaction = Transaction
         template_path = 'dashboard/Receipt.html'
-        context = {'transaction': Transaction }
+        context = {'transaction': transaction }
         # Create a Django response object, and specify content_type as pdf
         response = HttpResponse(content_type='application/pdf')
         #if download:
