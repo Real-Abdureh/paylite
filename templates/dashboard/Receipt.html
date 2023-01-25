@@ -7,21 +7,30 @@
     </head>
     <body>
         
-        {{user_profile_pdf}}
+        {{Transaction}}
         <h1>Receipt</h1>
-        <!-- <table>
-            <tr>
-                <th>Name</th>
-                <td>{{ form.Payer_Name }}</td>
-            </tr>
-            <tr>
-                <th>Amount</th>
-                <td>{{ form.Amount }}</td>
-            </tr>
-            <tr>
-                <th>Date</th>
-                <td>{{ form.Service }}</td>
-            </tr>
-        </table> -->
-    </body>
+        <!-- <table class="table">
+            <thead>
+              <tr>
+                <th class="theader">DATE</th>
+                <th class="theader">NAME</th>
+                <th class="theader">SERVICE</th>
+                <th class="theader">AMOUNT</th>
+                <th class="theader">REFRENCE</th>
+              </tr>
+            </thead>
+            <tbody>
+          
+              {% for i in Transaction %}
+              <tr>
+                <td>{{i.Date}}</td>
+                <td>{{i.Payer_Name}}</td>
+                <td>{{i.Service}}</td>
+                <td>{{i.Amount}}</td>
+                <td>{{i.id}}</td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table> -->
+    <!-- </body> -->
 </html>

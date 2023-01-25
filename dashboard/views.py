@@ -23,33 +23,30 @@ def index(request):
 
 # class CustomerListView(ListView):
 #     model = Transaction
-#     template_name = 'customer/Receipt.html'
+#     template_name = 'customer/main.html'
 
 
-def generate_receipt(request,):
-     #transaction = Transaction.objects.all()
-    user_object_pdf = User.objects.get(username=request.user.username)
-    #user_profil = Transaction.objects.get(select=user_object)
-    user_profile_pdf = Transaction.objects.filter(select=user_object_pdf)
-    template_path = 'dashboard/Receipt.html'
-    context = {'user_profile_pdf': user_profile_pdf}
-    # Create a Django response object, and specify content_type as pdf
-    response = HttpResponse(content_type='application/pdf')
-    #if download:
-    # response['Content-Disposition'] = 'attachment; filename="report.pdf"'
-    #if display
-    response['Content-Disposition'] = ' filename="report.pdf"'
-    # find the template and render it.
-    template = get_template(template_path)
-    html = template.render(context)
+def generate_receipt(request): 
+        transaction = Transaction
+        template_path = 'dashboard/Receipt.html'
+        context = {'transaction': Transaction }
+        # Create a Django response object, and specify content_type as pdf
+        response = HttpResponse(content_type='application/pdf')
+        #if download:
+        # response['Content-Disposition'] = 'attachment; filename="report.pdf"'
+        #if display
+        response['Content-Disposition'] = ' filename="report.pdf"'
+        # find the template and render it.
+        template = get_template(template_path)
+        html = template.render(context)
 
-    # create a pdf
-    pisa_status = pisa.CreatePDF(
-       html, dest=response, )
-    # if error then show some funny view
-    if pisa_status.err:
-       return HttpResponse('We had some errors <pre>' + html + '</pre>')
-    return response
+        # create a pdf
+        pisa_status = pisa.CreatePDF(
+        html, dest=response, )
+        # if error then show some funny view
+        if pisa_status.err:
+            return HttpResponse('We had some errors <pre>' + html + '</pre>')
+        return response
 
     
 def get(request):
