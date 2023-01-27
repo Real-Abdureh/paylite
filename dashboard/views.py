@@ -27,7 +27,7 @@ def index(request):
 
 
 def generate_receipt(request): 
-        transaction = Transaction
+        transaction = Transaction.objects.all()
         template_path = 'dashboard/Receipt.html'
         context = {'transaction': transaction }
         # Create a Django response object, and specify content_type as pdf

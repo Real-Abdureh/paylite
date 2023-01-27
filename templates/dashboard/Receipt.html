@@ -6,9 +6,15 @@
         <title>Receipt</title>
     </head>
     <body>
-        { for i in transaction }
-            {{transaction.Name}}
         <h1>Receipt</h1>
+        
+        {% for i in transaction %}
+			{{i.Payer_Name}}
+            {{i.Service}}
+            {{i.Amount}}
+            {{i.Date}}
+		{% endfor %}
+
         <!-- <table class="table">
             <thead>
               <tr>
