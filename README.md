@@ -1,1 +1,1 @@
-# This is a prototype for paylite payment system
+# This is a prototype for Paylite payment system
