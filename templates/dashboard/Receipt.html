@@ -1,5 +1,5 @@
 
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -38,5 +38,39 @@
               {% endfor %}
             </tbody>
           </table> -->
-     </body> 
+     <!-- </body>  --> -->
+</html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Receipt.css">
+    <title>Receipt</title>
+    <script src="https://raw.githack.com/eKoopmans/html2pdf/master/dist/html2pdf.bundle.js"></script>
+    <script src="js/script.js"></script>
+</head>
+<body>
+    
+    <div id="invoice" style="margin: 5% ;">
+        <!-- <img src="images/GHS-2 - Copy.jpg" style="border-radius: 50%;"> -->
+        <h3>{{user}}</h3>
+        <h4>P.M.B Box 041, Gombe</h4>
+        <h4>Gombe State.</h4>
+        <hr>
+        <h3 style="text-align: center;">Date : 20th August, 2022</h3>
+        {% for i in transaction %}
+        <h1>PAYER NAME:{{i.Payer_Name}}</h1>
+        <h1>SERVICE :{{i.Service}}</h1>
+        <h1>PAYER EMAIL:{{i.Payer_Email}}</h1>
+        <h1>PHONE NO. : {{i.phone}}</h1>
+        <h1>AMOUNT PAID: {{i.Amount}}</h1>
+        {% endfor %}
+        <br>
+         <p style="text-align: right;">____________________________</p>
+         <h4 style="text-align: right;">School Signature and Stamp</h4>
+     </div>
+     <button onclick="generatePDF()" style="margin-bottom: 5%;">Download</button>
+
+</body>
 </html>
